@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -35,7 +34,7 @@ function LogIn() {
 
       navigation("/content");
     } catch (error) {
-      alert("님 잘못함");
+      alert("아이디나 비밀번호가 틀렸습니다");
       console.error("오류", error);
     }
   };
@@ -51,7 +50,6 @@ function LogIn() {
             placeholder="아이디를 입력해주세요"
             onChange={(e) => setId(e.target.value)}
           ></input>
-
           <div className="font-bold text-3xl p-4">비밀번호</div>
           <input
             className="p-4 border-b-4"

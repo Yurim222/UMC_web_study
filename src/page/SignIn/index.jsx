@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import { POST } from "../../utils/axios";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 function SignIn() {
@@ -10,7 +9,6 @@ function SignIn() {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const data = {
       userId: id,
       password: password,
@@ -18,13 +16,11 @@ function SignIn() {
       userName: userName,
     };
     console.log(data);
-
     const axiosInstance = axios.create({
       baseURL: "http://umc.aolda.net",
     });
     try {
       e.preventDefault();
-
       console.log(data);
       console.log(axiosInstance.defaults.baseURL);
       await axiosInstance.post("/api/auth/register", data).then((response) => {
@@ -37,11 +33,6 @@ function SignIn() {
     }
   };
 
-  // const onChangeHandler = (e) => {
-  //   setRole(e.target.value);
-  //   //console.log(e.target.value);
-  // };
-
   return (
     <div>
       <div className="w-full p-4">
@@ -53,7 +44,6 @@ function SignIn() {
             placeholder="아이디를 입력해주세요"
             onChange={(e) => setId(e.target.value)}
           ></input>
-
           <div className="text-3xl font-bold">비밀번호</div>
           <input
             className="text-2xl pb-5"
@@ -81,7 +71,6 @@ function SignIn() {
               onChange={(e) => setUserName(e.target.value)}
             ></input>
           </div>
-
           <div className="pt-8">
             <button type="submit" className="text-2xl border-4 px-3">
               입력
